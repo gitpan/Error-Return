@@ -1,13 +1,10 @@
 package Error::Return;
-
+use 5.008;
 use strict;
 use warnings;
 use Scope::Upper qw(unwind want_at :words);
-
-our $VERSION = '0.01';
-
+our $VERSION = '0.02';
 use base 'Exporter';
-
 our @EXPORT = qw(RETURN);
 
 sub RETURN {
@@ -16,12 +13,9 @@ sub RETURN {
     # Do the cleanup that try() would normally do if the try-block had ended
     # without an exception>
     shift @Error::STACK;
-
-    unwind +(want_at($context) ? @_ : $_[0]) => $context;
+    unwind + (want_at($context) ? @_ : $_[0]) => $context;
 }
-
 1;
-
 __END__
 
 =head1 NAME
@@ -51,13 +45,13 @@ Error::Return - return(), skipping a scope
     print "doit() returned [$x]\n";
     print "after doit\n";
 
-prints
-
-    before doit
-     in doit, before try
-      in try: start
-    doit() returned [456]
-    after doit
+    # prints:
+    #
+    # before doit
+    #  in doit, before try
+    #   in try: start
+    # doit() returned [456]
+    # after doit
 
 =head1 DESCRIPTION
 
@@ -133,7 +127,7 @@ See perlmodinstall for information and options on installing Perl modules.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see L<http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+site near you. Or see L<http://search.cpan.org/dist/Error-Return/>.
 
 The development version lives at L<http://github.com/hanekomu//>.
 Instead of sending patches, please fork this project using the standard git

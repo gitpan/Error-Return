@@ -3,9 +3,12 @@ abstract: 'return(), skipping a scope'
 author:
   - 'Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>'
 build_requires:
+  ExtUtils::MakeMaker: 6.42
   Test::More: 0.70
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.77'
+generated_by: 'Module::Install version 0.91'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -15,10 +18,14 @@ no_index:
   directory:
     - inc
     - t
+    - xt
 requires:
   Error: 0
   Scope::Upper: 0
-  perl: 5.6.0
+  perl: 5.8.0
 resources:
+  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Error-Return
+  homepage: http://search.cpan.org/dist/Error-Return/
   license: http://dev.perl.org/licenses/
-version: 0.01
+  repository: git://github.com/hanekomu/error-return.git
+version: 0.02
