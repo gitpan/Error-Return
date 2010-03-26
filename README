@@ -1,6 +1,9 @@
 NAME
     Error::Return - return(), skipping a scope
 
+VERSION
+    version 1.100850
+
 SYNOPSIS
         use Error ':try';
         use Error::Return;
@@ -75,41 +78,42 @@ DESCRIPTION
     provides a more powerful way of returning.
 
 METHODS
-    "RETURN"
-        Like "return" except that it doesn't just return to its upper scope
-        but smashes right through it to the next-higher scope. Actually, it
-        skips two scopes, because it has to return from the "try()"
-        subroutine as well. It does take care of the cleanup that "try()"
-        would normally perform.
+  RETURN
+    Like "return" except that it doesn't just return to its upper scope but
+    smashes right through it to the next-higher scope. Actually, it skips
+    two scopes, because it has to return from the "try()" subroutine as
+    well. It does take care of the cleanup that "try()" would normally
+    perform.
 
-        See the Synopsis as an example - this way, the "try" block will "do
-        what you mean".
-
-BUGS AND LIMITATIONS
-    No bugs have been reported.
-
-    Please report any bugs or feature requests through the web interface at
-    <http://rt.cpan.org>.
+    See the synopsis as an example - this way, the "try" block will "do what
+    you mean".
 
 INSTALLATION
     See perlmodinstall for information and options on installing Perl
     modules.
 
+BUGS AND LIMITATIONS
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org/Public/Dist/Display.html?Name=Error-Return>.
+
 AVAILABILITY
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
-    CPAN site near you. Or see <http://search.cpan.org/dist/Error-Return/>.
+    CPAN site near you, or see <http://search.cpan.org/dist/Error-Return/>.
 
-    The development version lives at <http://github.com/hanekomu//>. Instead
-    of sending patches, please fork this project using the standard git and
-    github infrastructure.
+    The development version lives at
+    <http://github.com/hanekomu/Error-Return/>. Instead of sending patches,
+    please fork this project using the standard git and github
+    infrastructure.
 
-AUTHORS
-    Marcel Grünauer, "<marcel@cpan.org>"
+AUTHOR
+      Marcel Gruenauer <marcel@cpan.org>
 
 COPYRIGHT AND LICENSE
-    Copyright 2009 by Marcel Grünauer
+    This software is copyright (c) 2009 by Marcel Gruenauer.
 
-    This library is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 

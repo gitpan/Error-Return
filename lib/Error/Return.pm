@@ -1,10 +1,12 @@
-package Error::Return;
 use 5.008;
 use strict;
 use warnings;
+
+package Error::Return;
+our $VERSION = '1.100850';
+# ABSTRACT: return(), skipping a scope
 use Scope::Upper qw(unwind want_at :words);
-our $VERSION = '0.02';
-use base 'Exporter';
+use Exporter qw(import);
 our @EXPORT = qw(RETURN);
 
 sub RETURN {
@@ -16,11 +18,18 @@ sub RETURN {
     unwind + (want_at($context) ? @_ : $_[0]) => $context;
 }
 1;
+
+
 __END__
+=pod
 
 =head1 NAME
 
 Error::Return - return(), skipping a scope
+
+=head1 VERSION
+
+version 1.100850
 
 =head1 SYNOPSIS
 
@@ -98,51 +107,49 @@ more powerful way of returning.
 
 =head1 METHODS
 
-=over 4
-
-=item C<RETURN>
+=head2 RETURN
 
 Like C<return> except that it doesn't just return to its upper scope but
 smashes right through it to the next-higher scope. Actually, it skips two
 scopes, because it has to return from the C<try()> subroutine as well. It does
 take care of the cleanup that C<try()> would normally perform.
 
-See the Synopsis as an example - this way, the C<try> block will "do what you
+See the synopsis as an example - this way, the C<try> block will "do what you
 mean".
 
-=back
+=head1 INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
-
-=head1 INSTALLATION
-
-See perlmodinstall for information and options on installing Perl modules.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Error-Return>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see L<http://search.cpan.org/dist/Error-Return/>.
+site near you, or see
+L<http://search.cpan.org/dist/Error-Return/>.
 
-The development version lives at L<http://github.com/hanekomu//>.
+The development version lives at
+L<http://github.com/hanekomu/Error-Return/>.
 Instead of sending patches, please fork this project using the standard git
 and github infrastructure.
 
-=head1 AUTHORS
+=head1 AUTHOR
 
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  Marcel Gruenauer <marcel@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2009 by Marcel GrE<uuml>nauer
+This software is copyright (c) 2009 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 

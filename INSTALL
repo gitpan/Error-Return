@@ -1,9 +1,10 @@
+
 This is the Perl distribution Error-Return.
 
 ## Installation
 
-Error-Return installation is straightforward. If your CPAN shell is
-set up, you should just be able to do
+Error-Return installation is straightforward.
+If your CPAN shell is set up, you should just be able to do
 
     % cpan Error::Return
 
@@ -18,10 +19,9 @@ Then install it:
 
 ## Documentation
 
-Error-Return documentation is available as in POD. So you can do:
+Error-Return documentation is available as in POD.
+So you can do:
 
     % perldoc Error::Return
 
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer
+to read the documentation with your favorite pager.
