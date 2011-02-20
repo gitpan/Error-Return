@@ -1,5 +1,10 @@
 Revision history for Perl extension Error-Return
 
+1.110510  2011-02-20 15:27:47 Europe/Vienna
+    - only support Try::Tiny (not Error.pm)
+    - better documentation
+    - added benchmark
+
 1.100850  2010-03-26 23:59:47 Europe/Vienna
     - converted the distribution to Dist::Zilla-style
 

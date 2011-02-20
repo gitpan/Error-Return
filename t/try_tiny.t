@@ -1,9 +1,9 @@
 #!/usr/bin/env perl
 use warnings;
 use strict;
-use Error ':try';
+use Try::Tiny;
 use Error::Return;
-use Test::More tests => 3;
+use Test::More tests => 2;
 my $output;
 
 sub doit {
@@ -13,9 +13,8 @@ sub doit {
         RETURN 456;
         $output .= "  in try: end\n";
     }
-    catch Error with {
-        my $E = shift;
-        $output .= "  caught error [$E]\n";
+    catch {
+        $output .= "  caught error [$_]\n";
     };
     $output .= " in doit, after try\n";
 }
@@ -31,4 +30,3 @@ doit() returned [456]
 after doit
 EOEXPECT
 is($x, 456, 'returned value');
-is_deeply(\@Error::STACK, [], 'cleared @Error::STACK');
